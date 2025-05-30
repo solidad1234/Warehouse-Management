@@ -26,7 +26,6 @@ Each transaction generates a corresponding Custom Stock Ledger Entry to maintain
     Updates valuation dynamically on each incoming or outgoing transaction.
     ![image](https://github.com/user-attachments/assets/572f1161-ca37-4992-a48b-070cea573449)
 
-
 3. Reporting
  Stock Balance Report
 
@@ -42,7 +41,7 @@ Each transaction generates a corresponding Custom Stock Ledger Entry to maintain
     ![image](https://github.com/user-attachments/assets/2fffaf5f-1b15-406e-ba20-48c3329f85f2)
 
 
-✅Testing
+Testing
 
 Automated tests are provided using Frappe's built-in FrappeTestCase framework. The tests ensure:
 
