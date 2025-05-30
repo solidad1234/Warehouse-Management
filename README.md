@@ -1,7 +1,7 @@
  Warehouse Management 
 
 This module implements a lightweight, custom warehouse and inventory tracking system for Frappe ERP, designed to manage stock movements, maintain accurate inventory valuation, and provide essential reporting.
-Features
+Features include:
 1. Custom Stock Entry
 
 Handles three types of stock transactions:
