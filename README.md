@@ -1,41 +1,62 @@
-### Warehouse Management
+ Warehouse Management 
 
-warehouse management
+This module implements a lightweight, custom warehouse and inventory tracking system for Frappe ERP, designed to manage stock movements, maintain accurate inventory valuation, and provide essential reporting.
+📦 Features
+1. Custom Stock Entry
 
-### Installation
+Handles three types of stock transactions:
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+    Receipt: Adds incoming stock to the target warehouse.
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app warehouse_management
-```
+    Consume: Removes stock from the source warehouse.
 
-### Contributing
-
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
-
-```bash
-cd apps/warehouse_management
-pre-commit install
-```
-
-Pre-commit is configured to use the following tools for checking and formatting your code:
-
-- ruff
-- eslint
-- prettier
-- pyupgrade
-
-### CI
-
-This app can use GitHub Actions for CI. The following workflows are configured:
-
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+    Transfer: Moves stock from one warehouse to another, updating both.
+    ![image](https://github.com/user-attachments/assets/8274f6da-a7bb-4dfe-aaec-e6cc9f7ebfce)
 
 
-### License
+    ![image](https://github.com/user-attachments/assets/da237360-b677-4535-9fd1-020c2e9175d4)
+    ![image](https://github.com/user-attachments/assets/bec8023c-9811-4506-a453-063286e6085d)
 
-mit
+
+
+Each transaction generates a corresponding Custom Stock Ledger Entry to maintain quantity and valuation history.
+2. Stock Valuation
+
+
+    Updates valuation dynamically on each incoming or outgoing transaction.
+    ![image](https://github.com/user-attachments/assets/4e11b23f-92b2-46b3-b921-25fb4a9fe04b)
+
+
+3. Reporting
+✅ Stock Balance Report
+
+    Shows latest stock quantity, rate, and value per item and warehouse.
+
+    ![image](https://github.com/user-attachments/assets/efc50516-d8a0-4b03-8b59-2c22d25c19c7)
+
+
+📜 Stock Ledger Report
+
+    Detailed transaction history per item and warehouse.
+
+    ![image](https://github.com/user-attachments/assets/2fffaf5f-1b15-406e-ba20-48c3329f85f2)
+
+
+✅ Testing
+
+Automated tests are provided using Frappe's built-in FrappeTestCase framework. The tests ensure:
+
+    Each transaction type (Receipt, Consume, Transfer) completes successfully.
+
+    Correct behavior of ledger entry generation.
+    ![image](https://github.com/user-attachments/assets/7b6e3a7b-0499-4cdb-b9ad-1525d128bbc2)
+
+
+Tests Include:
+
+    Setup of random test items and warehouses
+
+    Execution and submission of each type of stock entry
+
+    Clean-up after each test to maintain database integrity
+
